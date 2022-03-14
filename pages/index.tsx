@@ -297,7 +297,8 @@ const Home: NextPage = () => {
         </Section>
       </main>
       <Footer>
-        <div>본 페이지의 상업적 목적이 아닌 개인 포트폴리오 공개용이며</div>
+        <div>본 페이지는 상업적 목적이 아닌</div>
+        <div> 개인 포트폴리오 공개용이며</div>
         <div>코드는 깃허브에 모두 공개되어 있습니다.</div>
         <div>NextJS와 Typescript로 제작되었습니다.</div>
         <br />
