@@ -226,7 +226,7 @@ const Home: NextPage = () => {
               🙍‍♂️ 안녕하세요! <br />
               저는 웹 프론트 엔드 개발자에 지원합니다.
             </FirstPrH1>
-            <Ul>
+            {/* <Ul>
               {me.mePr.map((pr) => (
                 <li
                   key={pr}
@@ -235,7 +235,7 @@ const Home: NextPage = () => {
                   }}
                 />
               ))}
-            </Ul>
+            </Ul> */}
           </div>
         </Section>
         <Section backgroundColor="#eeeeee" height="100%">
