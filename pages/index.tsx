@@ -226,16 +226,16 @@ const Home: NextPage = () => {
               🙍‍♂️ 안녕하세요! <br />
               저는 웹 프론트 엔드 개발자에 지원합니다.
             </FirstPrH1>
-            {/* <Ul>
+            <Ul>
               {me.mePr.map((pr) => (
                 <li
                   key={pr}
                   dangerouslySetInnerHTML={{
-                    __html: pr.toString().replaceAll('\n', '<br />'),
+                    __html: pr.toString().replace(/\\n/g, '<br />'),
                   }}
                 />
               ))}
-            </Ul> */}
+            </Ul>
           </div>
         </Section>
         <Section backgroundColor="#eeeeee" height="100%">
@@ -253,7 +253,7 @@ const Home: NextPage = () => {
                       matchedWords[i],
                       `<code>${matchedWords[i]
                         .toString()
-                        .replaceAll('`', '')}</code>`,
+                        .replace(/`/g, '')}</code>`,
                     );
                 }
                 return (

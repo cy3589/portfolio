@@ -108,7 +108,7 @@ const PortfolitModa: VFC<ModalProps & PortfolioProps> = ({
                   dangerouslySetInnerHTML={{
                     __html: portfolioData.detailedDescription
                       .toString()
-                      .replaceAll('\n', '<br />'),
+                      .replace(/\\n/g, '<br />'),
                   }}
                 />
               </div>
