@@ -3,8 +3,20 @@ import FanSpinIcon from '@components/FanSpinIcon';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import styled from '@emotion/styled';
 import Portfolio from '@components/Portfolio';
+import { PortfolioData } from '@interfaces/IndePageInterfaces';
+import {
+  Section,
+  SectionTitle,
+  ContactWrapper,
+  ProfileImageWrapper,
+  Ul,
+  MainSkillsWrapper,
+  SkillImagesWrapper,
+  SkillImageWrapper,
+  SkillImage,
+  PortfolioCardsWrapper,
+} from '@styles/IndexStyled';
 
 const mySkills: { src: string; alt: string }[] = [
   { src: '/reactjs-logo.png', alt: 'reactjs-logo' },
@@ -15,10 +27,17 @@ const mySkills: { src: string; alt: string }[] = [
   { src: '/typescript-logo.svg', alt: 'typescript-logo' },
   { src: '/emotion-logo.png', alt: 'emotion-logo' },
 ];
-const me: { phone: string; email: string } = {
+const me: { phone: string; email: string; mePr: string[] } = {
   phone: '010-2102-3589',
   email: 'jcy3589@gmail.com',
+  mePr: [
+    '평소에 무언가 만드는 것을 좋아하며 &quot;왜?&quot; 라는 질문을 자주 던집니다.\n방대한 자료가 존재하며 질문과 답변이 활발한 IT 분야에 매력를 느껴 공부하기 시작했습니다.',
+    '최신 기술에 관심이 많습니다.\n최신 기술이 나오면 기존 기술과 무엇이 다르며,\n어떤 문제를 해결하기 위해 나온 것인지 답을 찾고 적용해 보는 것을 좋아합니다.',
+    '질문과 답변, 협업을 좋아합니다.\n질문을 통해 문제를 해결할 수 있고,\n답변을 통해 내가 알고있는 지식의 깊이를 재확인 할 수 있다고 생각합니다.\n질문과 답변으로 서로 성장하고, 협업으로 하나의 프로젝트를 완성해 나가는 과정이 아름답다고 생각하고 있습니다.',
+    '항상 배우는 자세로 어제보다 더 나은 개발자가 되겠습니다.',
+  ],
 };
+
 const skills = [
   '`React`를 이용한 SPA 제작이 가능합니다.',
   '`NextJS`를 이용한 SPA 제작과 서버사이드 데이터페칭이 가능합니다.',
@@ -29,14 +48,7 @@ const skills = [
   '`Typescript`를 이용하여 개발 시 타입을 적용할 수 있습니다.',
   '`NodeJS`와 `Express`를 이용하여 간단한 백엔드 서버를 구축할 수 있습니다.',
 ];
-const projects: {
-  with: '개인' | '팀';
-  title: string;
-  description: string;
-  thumbnailUrl: string;
-  dependencies?: { front: string[]; back?: string[] };
-  images?: string[];
-}[] = [
+const projects: PortfolioData[] = [
   {
     with: '개인',
     title: 'NodeBird',
@@ -58,6 +70,14 @@ const projects: {
       ],
       back: ['NodeJS', 'mySQL', 'sequelize', 'passport', 'bcrypt'],
     },
+    detailedDescription:
+      'NextJS를 기반으로 만든 트위터와 비슷한 기능을 하는 SNS 웹 서비스 입니다.',
+    whatILearned: [
+      '전역 상태를 관리하는 리덕스를 적용하여 리덕스 사용법과 흐름을 알게 되었습니다.',
+      '최초 자바스크립트로 만든 프로젝트를 타입스크립트로 리팩토링 하며 타입스크립트를 왜 쓰는지 알게되었습니다',
+      '백엔드도 같이 만들면서 프론트와 백엔드가 어떻게 소통하고, 데이터가 어떻게 흘러가는지 알게되었습니다.',
+      'NextJS의 서버사이드 동작 함수의 동작 흐름과 리덕스와의 연동법을 알게되었습니다.',
+    ],
   },
   {
     with: '개인',
@@ -84,6 +104,13 @@ const projects: {
         'socket',
       ],
     },
+    detailedDescription: '',
+    whatILearned: [
+      'React-Query를 프로젝트에 적용해보며 비슷한 구조임에도 짧아지는 코드량을 경험하였습니다.',
+      'Socket.io를 이용한 실시간 통신과 데이터페칭을 구현하며 웹소켓의 동작 흐름을 간략히 알게되었습니다.',
+      '일반적인 게시글과 달리 역으로 동작해야하는 채팅의 무한스크롤을 구현하며 React-Query의 역방향 데이터 업데이트 방법을 알게되었습니다.',
+      'Emotion에 Type을 적용하여 정확한 type과 prop을 적용한 Emotion 사용법을 알게 되었습니다.',
+    ],
   },
   {
     with: '팀',
@@ -101,6 +128,15 @@ const projects: {
       ],
       back: ['firebase'],
     },
+    detailedDescription:
+      '블라인드를 벤치마킹 하여 자영업자, 비정규직 등의 블라인드 가입이 어려운 유저를 위한 익명 커뮤니티 입니다.',
+    whatILearned: [
+      'NextJS에서 제공하는 서버사이드 동작 함수인 getServerSideProps, getInitialProps에 대한 흐름을 알게 되었습니다.',
+      'NextJS에서 제공하는 API라우팅 기능을 이용하여 프론트 서버단에서 실행 불가능한 라이브러리의 사용, CORS 회피를 구현해보며 사용법을 알게 되었습니다.',
+      '협업을 하며 재사용이 쉽게 가능한 컴포넌트와 함수의 설계, Redux의 초기 구조 설계의 중요성을 알게 되었습니다.',
+      'Git으로 협업을 하며 Merge, Conflict, Revert, Branch분리 등 Git의 여러 기능과 에러를 경험해보았습니다.',
+      'ReduxToolKit과 같이 사용한 Redux의 HYDRATE 액션이 어떻게 동작하는지 간략하게 알게 되었습니다.',
+    ],
   },
   {
     with: '팀',
@@ -117,96 +153,16 @@ const projects: {
       '/show-me-the-feedback/show-me-the-feedback-image1.png',
       '/show-me-the-feedback/show-me-the-feedback-image2.png',
     ],
+    detailedDescription:
+      '토이프로젝트를 업로드 하고 이에 대한 피드백을 주고받을 수 있는 웹 서비스 입니다.',
+    whatILearned: [
+      '프레임워크 없이 순수 자바스크립트만으로 재사용성을 갖는 설계 방법을 간략히 알게 되었습니다.',
+      'DOM객체를 직접 제어하여 자바스크립트만으로 페이지를 변화시키는 여러 방법을 알게 되었습니다.',
+      'MongoDB의 구조와 사용법을 간략히 알게 되었습니다.',
+    ],
   },
 ];
-const Section = styled.section<{
-  color?: string;
-  backgroundColor?: string;
-  height?: string;
-  backgroundImage?: string;
-  paddingTop?: string;
-}>`
-  height: 100%;
-  min-height: 100vh;
-  width: 100%;
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  background-color: #fff;
-  ${({ color }) => color && `color: ${color}`};
-  ${({ backgroundColor }) =>
-    backgroundColor && `background-color: ${backgroundColor}`};
-  ${({ height }) => height && `height: ${height}`};
-  ${({ paddingTop }) => paddingTop && `padding-top: ${paddingTop}`};
-  ${({ backgroundImage }) =>
-    backgroundImage &&
-    `background-image: url(${backgroundImage});background-size:cover`};
-`;
-const Ul = styled.ul`
-  padding-right: 24px;
-  text-align: left;
-  & li {
-    padding-bottom: 14px;
-    font-size: 20px;
-  }
-`;
-const SkillImage = styled(Image)`
-  border-radius: 15%;
-`;
-const MainSkillsWrapper = styled.div`
-  width: 100%;
-  padding: 64px;
-  max-width: 768px;
-`;
-const SkillImageWrapper = styled.div`
-  width: 100%;
-  padding-bottom: 100%;
-  height: 100%;
-  position: relative;
-`;
-const SkillImagesWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  place-items: center;
-  gap: 24px;
-  justify-content: center;
-`;
-const ProfileImageWrapper = styled.div`
-  width: 100%;
-  max-width: 350px;
-  max-height: 350px;
-  & > div {
-    position: relative;
-    width: 100%;
-    padding-bottom: 100%;
-    & img {
-      border-radius: 50%;
-    }
-  }
-`;
-const ContactWrapper = styled.div`
-  text-align: left;
-  & .contact {
-    display: grid;
-    grid-template-columns: 1fr 2.5fr;
-  }
-  & a {
-    text-decoration: none;
-    color: inherit;
-  }
-`;
-const SectionTitle = styled.h1`
-  font-size: 48px;
-  font-weight: 700;
-`;
-const PortfolioCardsWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 14px;
-`;
+
 const Home: NextPage = () => {
   return (
     <div>
@@ -239,12 +195,15 @@ const Home: NextPage = () => {
                 }}
               >
                 <ContactWrapper>
-                  {Object.entries(me).map(([key, value]) => (
-                    <div className="contact" key={key}>
-                      <span>{key[0].toUpperCase() + key.slice(1)}: </span>
-                      <span>{value}</span>
-                    </div>
-                  ))}
+                  {Object.entries(me).map(
+                    ([key, value]) =>
+                      key !== 'mePr' && (
+                        <div className="contact" key={key}>
+                          <span>{key[0].toUpperCase() + key.slice(1)}: </span>
+                          <span>{value}</span>
+                        </div>
+                      ),
+                  )}
                 </ContactWrapper>
               </div>
             )}
@@ -268,29 +227,14 @@ const Home: NextPage = () => {
               저는 웹 프론트 엔드 개발자에 지원합니다.
             </h1>
             <Ul>
-              <li>
-                평소에 무언가 만드는 것을 좋아하며 &quot;왜?&quot; 라는 질문을
-                자주 던집니다.
-                <br /> 방대한 자료가 존재하며 질문과 답변이 활발한 IT 분야에
-                매력를 느껴 공부하기 시작했습니다.
-              </li>
-              <li>
-                최신 기술에 관심이 많습니다.
-                <br />
-                최신 기술이 나오면 기존 기술과 무엇이 다르며,
-                <br />
-                어떤 문제를 해결하기 위해 나온 것인지 답을 찾고 적용해 보는 것을
-                좋아합니다.
-              </li>
-              <li>
-                질문과 답변, 협업을 좋아합니다.
-                <br /> 질문을 통해 문제를 해결할 수 있고,
-                <br /> 답변을 통해 내가 알고있는 지식의 깊이를 재확인 할 수
-                있다고 생각합니다.
-                <br /> 질문과 답변으로 서로 성장하고, 협업으로 하나의 프로젝트를
-                완성해 나가는 과정이 아름답다고 생각하고 있습니다.
-              </li>
-              <li>항상 배우는 자세로 어제보다 더 나은 개발자가 되겠습니다.</li>
+              {me.mePr.map((pr) => (
+                <li
+                  key={pr}
+                  dangerouslySetInnerHTML={{
+                    __html: pr.replaceAll('\n', '<br />'),
+                  }}
+                />
+              ))}
             </Ul>
           </div>
         </Section>

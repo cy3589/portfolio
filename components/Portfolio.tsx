@@ -1,46 +1,30 @@
-import styled from '@emotion/styled';
-import { useState, VFC } from 'react';
+import { useCallback, useEffect, useState, VFC } from 'react';
 import Image from 'next/image';
 import { PortfolioProps } from '@interfaces/IndePageInterfaces';
 import PortfolitModal from '@components/PortfolitModal';
-
-const PortfolioCardWrapper = styled.div`
-  border: 4px solid #eee;
-  cursor: pointer;
-  border-radius: 10px;
-  width: 100%;
-  max-width: 500px;
-  background-color: rgba(238, 238, 238, 1);
-  transform: scale(1);
-  transition: 0.3s;
-  overflow: hidden;
-  :hover {
-    background-color: rgba(238, 238, 238, 0.5);
-    transform: scale(1.05);
-  }
-`;
-const ProjectThumbnailWrapper = styled.div`
-  width: 100%;
-  max-width: 500px;
-  max-height: 500px;
-  & > div {
-    position: relative;
-    width: 100%;
-    padding-bottom: 100%;
-  }
-`;
+import { useContextHook } from '@hooks/useContextHook';
+import {
+  PortfolioCardWrapper,
+  ProjectThumbnailWrapper,
+} from '@styles/IndexStyled';
 
 const Portfolio: VFC<PortfolioProps> = ({ portfolioData }) => {
   const [showModal, setShowModal] = useState<boolean>(false);
+  const { getter, setter } = useContextHook();
+  const onClickCard = useCallback(() => {
+    setter(window.scrollY);
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    setShowModal(true);
+  }, [setter]);
+  useEffect(() => {
+    if (!showModal) {
+      window.scrollTo({ top: getter() });
+    }
+  }, [getter, showModal]);
   return (
     <>
-      <PortfolioCardWrapper
-        key={portfolioData.title}
-        onClick={() => {
-          document.body.classList.add('no-scroll');
-          setShowModal(true);
-        }}
-      >
+      <PortfolioCardWrapper key={portfolioData.title} onClick={onClickCard}>
         <ProjectThumbnailWrapper>
           <div>
             <Image
