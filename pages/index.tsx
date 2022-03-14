@@ -227,14 +227,16 @@ const Home: NextPage = () => {
               저는 웹 프론트 엔드 개발자에 지원합니다.
             </FirstPrH1>
             <Ul>
-              {me.mePr?.map((pr) => (
-                <li
-                  key={pr}
-                  dangerouslySetInnerHTML={{
-                    __html: pr?.replaceAll('\n', '<br />'),
-                  }}
-                />
-              ))}
+              {me?.mePr &&
+                me.mePr.length > 0 &&
+                me.mePr.map((pr) => (
+                  <li
+                    key={pr}
+                    dangerouslySetInnerHTML={{
+                      __html: pr.replaceAll('\n', '<br />'),
+                    }}
+                  />
+                ))}
             </Ul>
           </div>
         </Section>
