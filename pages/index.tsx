@@ -22,7 +22,6 @@ import {
   Footer,
   GitHubFontAwesomeIcon,
 } from '@styles/IndexStyled';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import Link from 'next/link';
 
