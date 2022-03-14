@@ -188,8 +188,8 @@ const Home: NextPage = () => {
           <div>
             <FanSpinIcon />
             <SectionTitle>
-              책임감과 협동심이 많고
-              <br /> 열정 가득한.
+              배움의 욕심이 많고
+              <br /> 항상 노력하는
             </SectionTitle>
             <h2>신입 프론트엔드 개발자 정찬영 입니다.</h2>
             {me && (
