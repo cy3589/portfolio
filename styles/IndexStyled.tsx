@@ -212,6 +212,29 @@ const MainSkillsH1 = styled.h1`
   text-align: left;
   margin-left: 8px;
 `;
+const Footer = styled.footer`
+  background-color: rgb(140, 120, 114);
+  height: 240px;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  & div {
+    font-weight: 600;
+    font-size: larger;
+  }
+`;
+const GitHubFontAwesomeIcon = styled(FontAwesomeIcon)`
+  cursor: pointer;
+  transition: 0.3s;
+  color: rgba(229, 229, 229, 1);
+  :hover {
+    color: rgba(255, 255, 255, 1);
+    transform: scale(1.08);
+  }
+`;
 export {
   Section,
   Ul,
@@ -241,4 +264,6 @@ export {
   DivWidth100Height100,
   FirstPrH1,
   MainSkillsH1,
+  Footer,
+  GitHubFontAwesomeIcon,
 };

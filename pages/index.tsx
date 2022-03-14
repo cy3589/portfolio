@@ -19,7 +19,12 @@ import {
   ContactsWrapper,
   FirstPrH1,
   MainSkillsH1,
+  Footer,
+  GitHubFontAwesomeIcon,
 } from '@styles/IndexStyled';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import Link from 'next/link';
 
 const mySkills: { src: string; alt: string }[] = [
   { src: '/reactjs-logo.png', alt: 'reactjs-logo' },
@@ -288,11 +293,17 @@ const Home: NextPage = () => {
           </PortfolioCardsWrapper>
         </Section>
       </main>
-      <footer style={{ backgroundColor: '#7c797', color: '#fff' }}>
-        <span>Footer입니다</span>
-      </footer>
+      <Footer>
+        <div>본 페이지의 상업적 목적이 아닌 개인 포트폴리오 공개용이며</div>
+        <div>코드는 깃허브에 모두 공개되어 있습니다.</div>
+        <div>NextJS와 Typescript로 제작되었습니다.</div>
+        <br />
+        <Link href="https://github.com/cy3589/portfolio" passHref>
+          <GitHubFontAwesomeIcon icon={faGithub} size="5x" />
+        </Link>
+        <span>Github</span>
+      </Footer>
     </div>
   );
 };
-
 export default Home;
