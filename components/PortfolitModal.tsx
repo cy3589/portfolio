@@ -2,7 +2,13 @@ import styled from '@emotion/styled';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ModalProps, PortfolioProps } from '@interfaces/IndePageInterfaces';
-import { useCallback, VFC, MouseEvent, KeyboardEvent } from 'react';
+import {
+  useCallback,
+  VFC,
+  MouseEvent,
+  KeyboardEvent as ReactKeyboardEvent,
+  useEffect,
+} from 'react';
 import Scrollbars from 'react-custom-scrollbars';
 
 const ModalWrapper = styled.div<{ show: boolean }>`
@@ -51,7 +57,7 @@ const PortfolitModa: VFC<ModalProps & PortfolioProps> = ({
   portfolioData,
 }) => {
   const onClickInnerElement = useCallback(
-    (e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>) => {
+    (e: MouseEvent<HTMLDivElement> | ReactKeyboardEvent<HTMLDivElement>) => {
       e.stopPropagation();
     },
     [],
@@ -60,6 +66,20 @@ const PortfolitModa: VFC<ModalProps & PortfolioProps> = ({
     document.body.classList.remove('no-scroll');
     setShowModal(false);
   }, [setShowModal]);
+  const onEscPress = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setShowModal(false);
+      }
+    },
+    [setShowModal],
+  );
+  useEffect(() => {
+    document.addEventListener('keyup', onEscPress);
+    return () => {
+      document.removeEventListener('keyup', onEscPress);
+    };
+  }, [onEscPress]);
   return (
     <ModalWrapper
       show={showModal}
@@ -85,13 +105,15 @@ const PortfolitModa: VFC<ModalProps & PortfolioProps> = ({
           <Scrollbars className="scroll-class" autoHide universal>
             <h1>{title}</h1>
             <div>
-              <div>{portfolioData.with}프로젝트</div>
-              <span>사용 언어 및 라이브러리</span>
+              <h3>{portfolioData.with}프로젝트</h3>
+              <h4>사용 언어 및 라이브러리</h4>
               {dependencies &&
                 Object.entries(dependencies).map(([key, value]) => (
-                  <div key={key}>
-                    <span>{key[0].toUpperCase() + key.slice(1)}: </span>
-                    <span>{value}</span>
+                  <div key={key} style={{ display: 'flex' }}>
+                    <div style={{ fontWeight: 600, width: '48px' }}>
+                      {key[0].toUpperCase() + key.slice(1)}:{' '}
+                    </div>
+                    <div>{value}</div>
                   </div>
                 ))}
             </div>
