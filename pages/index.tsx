@@ -34,6 +34,7 @@ const mySkills: { src: string; alt: string }[] = [
   { src: '/typescript-logo.svg', alt: 'typescript-logo' },
   { src: '/emotion-logo.png', alt: 'emotion-logo' },
 ];
+
 const me: { phone: string; email: string; mePr: string[] } = {
   phone: '010-2102-3589',
   email: 'jcy3589@gmail.com',
