@@ -218,6 +218,7 @@ const Home: NextPage = () => {
                 alt="profile-image"
                 layout="fill"
                 objectFit="contain"
+                unoptimized
               />
             </div>
           </ProfileImageWrapper>
@@ -278,6 +279,7 @@ const Home: NextPage = () => {
                     alt={alt}
                     objectFit="cover"
                     layout="fill"
+                    unoptimized
                   />
                 </SkillImageWrapper>
               ))}

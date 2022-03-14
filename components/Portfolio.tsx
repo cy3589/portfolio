@@ -32,6 +32,7 @@ const Portfolio: VFC<PortfolioProps> = ({ portfolioData }) => {
               alt="profile-image"
               layout="fill"
               objectFit="cover"
+              unoptimized
             />
           </div>
         </ProjectThumbnailWrapper>

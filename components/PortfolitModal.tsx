@@ -130,6 +130,7 @@ const PortfolitModa: VFC<ModalProps & PortfolioProps> = ({
                           alt="profile-image"
                           layout="fill"
                           objectFit="contain"
+                          unoptimized
                         />
                       </ProjectImageWrapper>
                     </ProjectThumbnailWrapper>
@@ -142,6 +143,7 @@ const PortfolitModa: VFC<ModalProps & PortfolioProps> = ({
                         alt="profile-image"
                         layout="fill"
                         objectFit="cover"
+                        unoptimized
                       />
                     </ProjectImageWrapper>
                   </ProjectThumbnailWrapper>
