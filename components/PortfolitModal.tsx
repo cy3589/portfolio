@@ -1,6 +1,5 @@
 /* eslint-disable react/no-danger */
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ModalProps, PortfolioProps } from '@interfaces/IndePageInterfaces';
 import {
   ModalWrapper,
@@ -9,6 +8,14 @@ import {
   ProjectThumbnailWrapper,
   ProjectImageWrapper,
   ProjectImagesWrapper,
+  ModalUl,
+  ModalCode,
+  ModalCodesWrapper,
+  ModalCodeWrapper,
+  ModalLangKeyWrapper,
+  ModalLangWrapper,
+  ModalCancelButtonIcon,
+  DivWidth100Height100,
 } from '@styles/IndexStyled';
 import {
   useCallback,
@@ -65,13 +72,9 @@ const PortfolitModa: VFC<ModalProps & PortfolioProps> = ({
         role="button"
       >
         <CancelButton onClick={onCancelModal}>
-          <FontAwesomeIcon
-            icon={faXmark}
-            size="4x"
-            style={{ padding: '4px 8px 4px 8px' }}
-          />
+          <ModalCancelButtonIcon icon={faXmark} size="4x" />
         </CancelButton>
-        <div style={{ width: '100%', height: '100%' }}>
+        <DivWidth100Height100>
           <Scrollbars
             className="scroll-class"
             autoHide
@@ -85,32 +88,18 @@ const PortfolitModa: VFC<ModalProps & PortfolioProps> = ({
               {portfolioData.dependencies &&
                 Object.entries(portfolioData.dependencies).map(
                   ([key, value]) => (
-                    <div
-                      key={key}
-                      style={{ display: 'flex', marginBottom: '10px' }}
-                    >
-                      <div
-                        style={{
-                          fontWeight: 600,
-                          width: '48px',
-                        }}
-                      >
+                    <ModalLangWrapper key={key}>
+                      <ModalLangKeyWrapper>
                         {key[0].toUpperCase() + key.slice(1)}:{' '}
-                      </div>
-                      <div
-                        style={{
-                          display: 'flex',
-                          flexWrap: 'wrap',
-                          marginBottom: '16px',
-                        }}
-                      >
+                      </ModalLangKeyWrapper>
+                      <ModalCodesWrapper>
                         {value.map((lang) => (
-                          <div key={lang} style={{ height: '24px' }}>
-                            <code style={{ fontWeight: 600 }}>{lang}</code>
-                          </div>
+                          <ModalCodeWrapper key={lang}>
+                            <ModalCode>{lang}</ModalCode>
+                          </ModalCodeWrapper>
                         ))}
-                      </div>
-                    </div>
+                      </ModalCodesWrapper>
+                    </ModalLangWrapper>
                   ),
                 )}
               <div>
@@ -126,11 +115,11 @@ const PortfolitModa: VFC<ModalProps & PortfolioProps> = ({
               </div>
               <div>
                 <h3>Learned</h3>
-                <ul style={{ paddingRight: '40px' }}>
+                <ModalUl>
                   {portfolioData.whatILearned.map((v) => (
                     <li key={v}>{v}</li>
                   ))}
-                </ul>
+                </ModalUl>
               </div>
               <ProjectImagesWrapper>
                 {portfolioData.images ? (
@@ -141,7 +130,7 @@ const PortfolitModa: VFC<ModalProps & PortfolioProps> = ({
                           src={src}
                           alt="profile-image"
                           layout="fill"
-                          objectFit="cover"
+                          objectFit="contain"
                         />
                       </ProjectImageWrapper>
                     </ProjectThumbnailWrapper>
@@ -161,7 +150,7 @@ const PortfolitModa: VFC<ModalProps & PortfolioProps> = ({
               </ProjectImagesWrapper>
             </div>
           </Scrollbars>
-        </div>
+        </DivWidth100Height100>
       </ModalInner>
     </ModalWrapper>
   );

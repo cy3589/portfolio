@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 
 const Section = styled.section<{
@@ -7,6 +8,7 @@ const Section = styled.section<{
   height?: string;
   backgroundImage?: string;
   paddingTop?: string;
+  textAlign?: string;
 }>`
   height: 100%;
   min-height: 100vh;
@@ -25,6 +27,7 @@ const Section = styled.section<{
   ${({ backgroundImage }) =>
     backgroundImage &&
     `background-image: url(${backgroundImage});background-size:cover`};
+  ${({ textAlign }) => textAlign && `text-align: ${textAlign}`};
 `;
 const Ul = styled.ul`
   padding-right: 24px;
@@ -159,9 +162,55 @@ const ProjectImageWrapper = styled.div`
   overflow: hidden;
 `;
 const ProjectImagesWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+const ModalUl = styled.ul`
+  padding-right: 40px;
+`;
+const ModalCode = styled.code`
+  font-weight: 600;
+`;
+const ModalCodeWrapper = styled.div`
+  height: 24px;
+`;
+const ModalCodesWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+`;
+const ModalLangKeyWrapper = styled.div`
+  font-weight: 600;
+  width: 48px;
+`;
+const ModalLangWrapper = styled.div`
+  display: flex;
+  margin-bottom: 10px;
+`;
+
+const ModalCancelButtonIcon = styled(FontAwesomeIcon)`
+  padding: 4px 8px 4px 8px;
+`;
+const DivWidth100Height100 = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+const ContactsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+const FirstPrH1 = styled.h1`
+  font-size: 20px;
+  padding: 0 16px 0 16px;
+`;
+const MainSkillsH1 = styled.h1`
+  width: 100%;
+  text-align: left;
+  margin-left: 8px;
 `;
 export {
   Section,
@@ -172,6 +221,7 @@ export {
   SkillImagesWrapper,
   ProfileImageWrapper,
   ContactWrapper,
+  ContactsWrapper,
   SectionTitle,
   PortfolioCardsWrapper,
   ModalWrapper,
@@ -181,4 +231,14 @@ export {
   ProjectThumbnailWrapper,
   ProjectImageWrapper,
   ProjectImagesWrapper,
+  ModalUl,
+  ModalCode,
+  ModalCodeWrapper,
+  ModalCodesWrapper,
+  ModalLangKeyWrapper,
+  ModalLangWrapper,
+  ModalCancelButtonIcon,
+  DivWidth100Height100,
+  FirstPrH1,
+  MainSkillsH1,
 };

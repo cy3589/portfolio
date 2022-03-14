@@ -16,6 +16,9 @@ import {
   SkillImageWrapper,
   SkillImage,
   PortfolioCardsWrapper,
+  ContactsWrapper,
+  FirstPrH1,
+  MainSkillsH1,
 } from '@styles/IndexStyled';
 
 const mySkills: { src: string; alt: string }[] = [
@@ -186,14 +189,7 @@ const Home: NextPage = () => {
             </SectionTitle>
             <h2>신입 프론트엔드 개발자 정찬영 입니다.</h2>
             {me && (
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
-              >
+              <ContactsWrapper>
                 <ContactWrapper>
                   {Object.entries(me).map(
                     ([key, value]) =>
@@ -205,11 +201,11 @@ const Home: NextPage = () => {
                       ),
                   )}
                 </ContactWrapper>
-              </div>
+              </ContactsWrapper>
             )}
           </div>
         </Section>
-        <Section style={{ textAlign: 'left' }}>
+        <Section textAlign="left">
           <SectionTitle>About Me</SectionTitle>
           <ProfileImageWrapper>
             <div>
@@ -222,10 +218,10 @@ const Home: NextPage = () => {
             </div>
           </ProfileImageWrapper>
           <div>
-            <h1 style={{ fontSize: '20px', padding: '0 16px 0 16px' }}>
+            <FirstPrH1>
               🙍‍♂️ 안녕하세요! <br />
               저는 웹 프론트 엔드 개발자에 지원합니다.
-            </h1>
+            </FirstPrH1>
             <Ul>
               {me.mePr.map((pr) => (
                 <li
@@ -265,9 +261,7 @@ const Home: NextPage = () => {
             })}
           </Ul>
           <MainSkillsWrapper>
-            <h1 style={{ width: '100%', textAlign: 'left', marginLeft: '8px' }}>
-              Main Skills
-            </h1>
+            <MainSkillsH1>Main Skills</MainSkillsH1>
             <SkillImagesWrapper>
               {mySkills.map(({ src, alt }) => (
                 <SkillImageWrapper key={alt}>
