@@ -227,16 +227,14 @@ const Home: NextPage = () => {
               저는 웹 프론트 엔드 개발자에 지원합니다.
             </FirstPrH1>
             <Ul>
-              {me?.mePr &&
-                me.mePr.length > 0 &&
-                me.mePr.map((pr) => (
-                  <li
-                    key={pr}
-                    dangerouslySetInnerHTML={{
-                      __html: pr.replaceAll('\n', '<br />'),
-                    }}
-                  />
-                ))}
+              {me.mePr.map((pr) => (
+                <li
+                  key={pr}
+                  dangerouslySetInnerHTML={{
+                    __html: pr.toString().replaceAll('\n', '<br />'),
+                  }}
+                />
+              ))}
             </Ul>
           </div>
         </Section>
@@ -249,10 +247,14 @@ const Home: NextPage = () => {
               if (matchedWords && matchedWords.length > 0) {
                 let newText = v;
                 for (let i = 0; i < matchedWords.length; i += 1) {
-                  newText = newText.replace(
-                    matchedWords[i],
-                    `<code>${matchedWords[i].replaceAll('`', '')}</code>`,
-                  );
+                  newText = newText
+                    .toString()
+                    .replace(
+                      matchedWords[i],
+                      `<code>${matchedWords[i]
+                        .toString()
+                        .replaceAll('`', '')}</code>`,
+                    );
                 }
                 return (
                   <li

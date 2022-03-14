@@ -106,10 +106,9 @@ const PortfolitModa: VFC<ModalProps & PortfolioProps> = ({
                 <h3>Summary</h3>
                 <span
                   dangerouslySetInnerHTML={{
-                    __html: portfolioData.detailedDescription.replaceAll(
-                      '\n',
-                      '<br />',
-                    ),
+                    __html: portfolioData.detailedDescription
+                      .toString()
+                      .replaceAll('\n', '<br />'),
                   }}
                 />
               </div>
