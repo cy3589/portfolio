@@ -169,6 +169,24 @@ const projects: PortfolioData[] = [
       'MongoDB의 구조와 사용법을 간략히 알게 되었습니다.',
     ],
   },
+  {
+    with: '팀',
+    title: '오늘의집',
+    description:
+      '오늘의집의 클론 프로젝트이며 현재 진행중이고 store 페이지부터 진행중입니다.',
+    thumbnailUrl: '/o-house/o-house-thumbnail.jpg',
+    dependencies: {
+      front: ['NextJS'],
+      back: ['오늘의집 API'],
+    },
+    images: ['/o-house/o-house-image0.png', '/o-house/o-house-image1.png'],
+    detailedDescription:
+      '오늘의집 사이트의 네트워크 요청을 기반으로 분석해보니 API가 오픈되어 있는 것을 확인하여 진행해보고있는 오늘의집 클론 프로젝트 입니다. 미구현된 기능이 다수 존재하지만 지속적으로 보완중입니다.',
+    whatILearned: [
+      'NextJS의 api라우팅 기능을 이용하여 CORS에러 회피를 구현하며 api라우팅 사용법을 알게 되었습니다.',
+      'masonic 라이브러리를 이용한 돔 가상화의 구현, 라이브러리 사용법, 성능상 이점 등을 알게 되었습니다.',
+    ],
+  },
 ];
 
 const Home: NextPage = () => {
