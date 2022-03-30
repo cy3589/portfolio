@@ -26,6 +26,17 @@ import {
 } from 'react';
 import Scrollbars from 'react-custom-scrollbars';
 import Image from 'next/image';
+import Link from 'next/link';
+import styled from '@emotion/styled';
+
+const DeployLinkStyledStrong = styled.strong`
+  cursor: pointer;
+  transition: 0.3s;
+  :hover {
+    font-size: larger;
+    color: rgba(0, 0, 0, 0.7);
+  }
+`;
 
 const PortfolitModa: VFC<ModalProps & PortfolioProps> = ({
   showModal,
@@ -102,6 +113,25 @@ const PortfolitModa: VFC<ModalProps & PortfolioProps> = ({
                     </ModalLangWrapper>
                   ),
                 )}
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                }}
+              >
+                <h3>{`배포여부: ${portfolioData.isDeploy ? 'O' : 'X'}`}</h3>
+                {portfolioData.isDeploy && portfolioData.deployLink ? (
+                  <>
+                    {/* <h3>배포링크: </h3> */}
+                    <Link href={`https://${portfolioData.deployLink}`} passHref>
+                      <DeployLinkStyledStrong>
+                        {portfolioData.deployLink}
+                      </DeployLinkStyledStrong>
+                    </Link>
+                  </>
+                ) : null}
+              </div>
               <div>
                 <h3>Summary</h3>
                 <span

@@ -9,6 +9,8 @@ export interface PortfolioData {
   images?: string[];
   detailedDescription: string;
   whatILearned: string[];
+  isDeploy: boolean;
+  deployLink?: string;
 }
 
 export interface PortfolioProps {

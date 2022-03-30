@@ -61,6 +61,8 @@ const projects: PortfolioData[] = [
     with: '개인',
     title: 'NodeBird',
     description: 'NextJS를 기반으로 만든 SNS 웹 서비스 입니다',
+    isDeploy: true,
+    deployLink: 'nodebird.cy3589.com',
     thumbnailUrl: '/nodebird/nodebird-thumbnail.png',
     images: [
       '/nodebird/nodebird-thumbnail.png',
@@ -91,6 +93,8 @@ const projects: PortfolioData[] = [
     with: '개인',
     title: 'Sleact',
     description: 'NextJS를 기반으로 만든 슬랙의 클론코딩 입니다',
+    isDeploy: true,
+    deployLink: 'sleact.cy3589.com',
     thumbnailUrl: '/sleact/sleact-thumbnail.png',
     images: [
       '/sleact/sleact-image0.png',
@@ -124,6 +128,7 @@ const projects: PortfolioData[] = [
     with: '팀',
     title: 'Dokteuk',
     description: 'NextJS를 기반으로 만든 커뮤니티 입니다',
+    isDeploy: false,
     thumbnailUrl: '/dokteuk/dokteuk-thumbnail.png',
     dependencies: {
       front: [
@@ -151,6 +156,7 @@ const projects: PortfolioData[] = [
     title: 'ShowMeTheFeedBack',
     description:
       'HTML,CSS,JAVASCRIPT 만으로 만든 토이프로젝트 피드백 서비스 입니다',
+    isDeploy: false,
     thumbnailUrl: '/show-me-the-feedback/show-me-the-feedback-thumbnail.png',
     dependencies: {
       front: ['HTML', 'CSS', 'JAVASCRIPT'],
@@ -174,6 +180,8 @@ const projects: PortfolioData[] = [
     title: '오늘의집',
     description:
       '오늘의집의 클론 프로젝트이며 현재 진행중이고 store 페이지부터 진행중입니다.',
+    isDeploy: true,
+    deployLink: 'o-house-clone.cy3589.com',
     thumbnailUrl: '/o-house/o-house-thumbnail.jpg',
     dependencies: {
       front: ['NextJS'],
