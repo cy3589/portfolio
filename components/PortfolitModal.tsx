@@ -46,10 +46,10 @@ const PortfolitModa: VFC<ModalProps & PortfolioProps> = ({
   const onEscPress = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        setShowModal(false);
+        onCancelModal();
       }
     },
-    [setShowModal],
+    [onCancelModal],
   );
   useEffect(() => {
     document.addEventListener('keyup', onEscPress);
