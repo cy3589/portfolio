@@ -214,7 +214,8 @@ const Home: NextPage = () => {
         {/* <Section color="white" backgroundImage="/home_bg_2.jpg"> */}
         <Section
           color="white"
-          backgroundImage="/home_bg.png"
+          // backgroundImage="/home_bg.png"
+          backgroundImage="/home_bg.jpg"
           paddingTop="7.5vh"
         >
           <div>
