@@ -235,6 +235,11 @@ const GitHubFontAwesomeIcon = styled(FontAwesomeIcon)`
     transform: scale(1.08);
   }
 `;
+const ModalLinkWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
 export {
   Section,
   Ul,
@@ -266,4 +271,5 @@ export {
   MainSkillsH1,
   Footer,
   GitHubFontAwesomeIcon,
+  ModalLinkWrapper,
 };

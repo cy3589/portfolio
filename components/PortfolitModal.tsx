@@ -16,6 +16,7 @@ import {
   ModalLangWrapper,
   ModalCancelButtonIcon,
   DivWidth100Height100,
+  ModalLinkWrapper,
 } from '@styles/IndexStyled';
 import {
   useCallback,
@@ -113,13 +114,7 @@ const PortfolitModa: VFC<ModalProps & PortfolioProps> = ({
                     </ModalLangWrapper>
                   ),
                 )}
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                }}
-              >
+              <ModalLinkWrapper>
                 <h3>{`배포여부: ${portfolioData.isDeploy ? 'O' : 'X'}`}</h3>
                 {portfolioData.isDeploy && portfolioData.deployLink ? (
                   <>
@@ -131,21 +126,15 @@ const PortfolitModa: VFC<ModalProps & PortfolioProps> = ({
                     </Link>
                   </>
                 ) : null}
-              </div>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                }}
-              >
+              </ModalLinkWrapper>
+              <ModalLinkWrapper>
                 <h3>Github Link: </h3>
                 <Link href={`https://${portfolioData.githubLink}`} passHref>
                   <DeployLinkStyledStrong>
                     {portfolioData.githubLink}
                   </DeployLinkStyledStrong>
                 </Link>
-              </div>
+              </ModalLinkWrapper>
               <div>
                 <h3>Summary</h3>
                 <span
