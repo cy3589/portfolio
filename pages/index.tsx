@@ -63,6 +63,7 @@ const projects: PortfolioData[] = [
     description: 'NextJS를 기반으로 만든 SNS 웹 서비스 입니다',
     isDeploy: true,
     deployLink: 'nodebird.cy3589.com',
+    githubLink: 'github.com/cy3589/NodeBird__',
     thumbnailUrl: '/nodebird/nodebird-thumbnail.png',
     images: [
       '/nodebird/nodebird-thumbnail.png',
@@ -95,6 +96,7 @@ const projects: PortfolioData[] = [
     description: 'NextJS를 기반으로 만든 슬랙의 클론코딩 입니다',
     isDeploy: true,
     deployLink: 'sleact.cy3589.com',
+    githubLink: 'github.com/cy3589/sleact-react-query',
     thumbnailUrl: '/sleact/sleact-thumbnail.png',
     images: [
       '/sleact/sleact-image0.png',
@@ -129,6 +131,7 @@ const projects: PortfolioData[] = [
     title: 'Dokteuk',
     description: 'NextJS를 기반으로 만든 커뮤니티 입니다',
     isDeploy: false,
+    githubLink: 'github.com/cy3589/dokteuk',
     thumbnailUrl: '/dokteuk/dokteuk-thumbnail.png',
     dependencies: {
       front: [
@@ -157,6 +160,7 @@ const projects: PortfolioData[] = [
     description:
       'HTML,CSS,JAVASCRIPT 만으로 만든 토이프로젝트 피드백 서비스 입니다',
     isDeploy: false,
+    githubLink: 'github.com/cy3589/ShowMeTheFeedback',
     thumbnailUrl: '/show-me-the-feedback/show-me-the-feedback-thumbnail.png',
     dependencies: {
       front: ['HTML', 'CSS', 'JAVASCRIPT'],
@@ -182,6 +186,7 @@ const projects: PortfolioData[] = [
       '오늘의집의 클론 프로젝트이며 현재 진행중이고 store 페이지부터 진행중입니다.',
     isDeploy: true,
     deployLink: 'o-house-clone.cy3589.com',
+    githubLink: 'github.com/cy3589/o-house-clone',
     thumbnailUrl: '/o-house/o-house-thumbnail.jpg',
     dependencies: {
       front: ['NextJS'],

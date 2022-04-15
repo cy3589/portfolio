@@ -11,6 +11,7 @@ export interface PortfolioData {
   whatILearned: string[];
   isDeploy: boolean;
   deployLink?: string;
+  githubLink: string;
 }
 
 export interface PortfolioProps {

@@ -132,6 +132,20 @@ const PortfolitModa: VFC<ModalProps & PortfolioProps> = ({
                   </>
                 ) : null}
               </div>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                }}
+              >
+                <h3>Github Link: </h3>
+                <Link href={`https://${portfolioData.githubLink}`} passHref>
+                  <DeployLinkStyledStrong>
+                    {portfolioData.githubLink}
+                  </DeployLinkStyledStrong>
+                </Link>
+              </div>
               <div>
                 <h3>Summary</h3>
                 <span
